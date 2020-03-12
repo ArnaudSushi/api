@@ -11,7 +11,7 @@ function get_list_articles($pdo)
 
     while ($result = $exe->fetch(PDO::FETCH_OBJ)) { //Exécution de la requête définie plus haut
 
-        array_push($liste_article, array("ID" => $result->ID, "Titre" => $result->Titre, "Date" => $result->Date)); //on ajoute tous les articles dans notre tableau
+        array_push($liste_article, array("id" => $result->id, "Libelle" => $result->libelle)); //on ajoute tous les articles dans notre tableau
     }
     return $liste_article; //on renvoie le tableau contenant tous nos articles
 }
@@ -24,7 +24,7 @@ function get_article_by_id($id, $pdo)
 
     while ($result = $exe->fetch(PDO::FETCH_OBJ)) {
 
-        $detail_article = array("Titre" => $result->Titre, "Date" => $result->Date, "Article" => $result->Article); //je mets le résultat de ma requête dans une variable
+        $detail_article = array("Libelle" => $result->libelle, "Article" => $result->article); //je mets le résultat de ma requête dans une variable
 
     }
     return $detail_article; //je retourne l'article en question
